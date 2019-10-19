@@ -1,8 +1,6 @@
 # Comandos-Basicos-Linux
 Lista de comandos básicos do Linux | Laravel | GIT
 
-# Comandos Básicos
-
 ## Git:
 ```bash
  - Baixar branch:
