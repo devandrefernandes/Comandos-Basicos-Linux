@@ -47,6 +47,26 @@ Lista de comandos básicos do Linux | Laravel | GIT
     git pull
     git stash pop
 ```
+> Verificar se existe chave ssh:
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+> Adicionar par de chave ssh:
+```bash
+ssh-keygen -t rsa -C "email@example.com" -b 4096
+```
+> Copiar par de chave ssh para a área de transferência:
+```bash
+xclip -sel clip < ~/.ssh/id_rsa.pub
+```
+> Adicionar chave ssh no gitlab:
+```bash
+Menu 'Settings' -> 'SSH Keys'
+```
+> Testar configuração ssh:
+```bash
+ssh -T git@gitlab.com -p 2200
+```
 
 ## Linux:
 ```bash
