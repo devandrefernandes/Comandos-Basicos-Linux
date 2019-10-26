@@ -2,51 +2,65 @@
 Lista de comandos básicos do Linux | Laravel | GIT
 
 ## Git:
+> Baixar branch:
 ```bash
- - Baixar branch:
     git checkout dev
     git pull
-
- - Alterar repositório local para o mesmo do branch:
+```
+> Alterar repositório local para o mesmo do branch:
+ ```bash
     git checkout -b nome­novo­branch
     EX nome(Demanda-Descrição): 28233-AlterarRegraByside
-
- - Após as alterações no branch, alterar repositório para dev:
+```
+> Após as alterações no branch, alterar repositório para dev:
+```bash
     git add .
     git commit -m "Descrição demanda"
     git push
 
     git checkout dev
-
- - Baixar possíveis alterações:
+```
+> Baixar possíveis alterações:
+```bash
     git pull
- 
- - Fazer o merge:
+```
+> Fazer o merge:
+```bash
     git merge nome­novo­branch
- 
- - Fazer o push:
+```
+> Fazer o push:
+```bash
     git push
-
- - Status modificações:
+```
+> Status modificações:
+```bash
     git status
- 
- - Não permitir enviar arquivos com apenas a permissão alterada:
+```
+> Não permitir enviar arquivos com apenas a permissão alterada:
+```bash
     git config core.filemode false
- 
- - Visualizar origem:
+```
+> Visualizar origem:
+```bash
     git remote -v
- 
- - Alterar origem do projeto para ssh:
+```
+> Alterar origem do projeto para ssh:
+```bash
     git remote set-url origin ssh://git@gitlab...:2200/pasta/.git
- 
- - Revert merge:
-    git reset --hard HEAD~1
- 
- - Stash
+```
+> Revert merge:
+```bash
+    git reset --soft|mixed|hard branch
     git stash
-    git pull
+    git revert hash-do-ultimo-commit
+    git stash pop/apply
+```
+> Stash
+```bash
+    git stash
     git stash pop
 ```
+### Chave SSH gitlab
 > Verificar se existe chave ssh:
 ```bash
 cat ~/.ssh/id_rsa.pub
@@ -66,6 +80,12 @@ Menu 'Settings' -> 'SSH Keys'
 > Testar configuração ssh:
 ```bash
 ssh -T git@gitlab.com -p 2200
+```
+### Configurações globais - first-time
+```bash
+git config --global user.name "Nome Usuário"
+git config --global user.email "email.usuario@gdax.com.br"
+git config --global color.ui true
 ```
 
 ## Linux:
@@ -175,4 +195,34 @@ ssh -T git@gitlab.com -p 2200
      git pull - api e front
      npm run build -- --mode development --dest pasta_destino
      rm -R dist_old/ && mv dist/ dist_old/ && mv pasta_destino/ dist/
+```
+## Nginx
+Configurar virtualhost.
+> Duplicar arquivo available/default com um novo nome:
+```bash
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/compreclaro.local
+```
+> Alterar arquivo criado acima:
+```bash
+server_name nomeaplicacao.local;
+root /caminho/www/nomeaplicacao/public;
+index index.php index.html inde.htm;
+```
+> Criar link simbólico:
+```bash
+cd /etc/nginx/sites-enabled
+ln -s /etc/nginx/sites-available/compreclaro.local
+```
+> Configurar hosts
+```bash
+vim /etc/hosts
+127.0.0.1 nomeaplicacao.local
+```
+> Restart serviço:
+```bash
+service nginx restart
+```
+> Acessar aplicacao
+```bash
+nomeaplicacao.local:81
 ```
