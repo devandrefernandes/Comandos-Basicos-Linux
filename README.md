@@ -10,12 +10,11 @@ Lista de comandos básicos do Linux | Laravel | GIT
 > Alterar repositório local para o mesmo do branch:
  ```bash
     git checkout -b nome­novo­branch
-    EX nome(Demanda-Descrição): 28233-AlterarRegraByside
 ```
 > Após as alterações no branch, alterar repositório para dev:
 ```bash
     git add .
-    git commit -m "Descrição demanda"
+    git commit -m "Descrição"
     git push
 
     git checkout dev
