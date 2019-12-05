@@ -83,7 +83,7 @@ ssh -T git@gitlab.com -p 2200
 ### Configurações globais - first-time
 ```bash
 git config --global user.name "Nome Usuário"
-git config --global user.email "email.usuario@gdax.com.br"
+git config --global user.email "email.usuario@google.com.br"
 git config --global color.ui true
 ```
 ### Mostrar banch atual no terminal
